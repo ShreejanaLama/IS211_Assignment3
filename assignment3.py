@@ -50,7 +50,7 @@ def find_most_popular_browser(data):
 def count_hits_per_hour(data):
     hour_counts = defaultdict(int)
     for entry in data:
-        hour = datetime.strptime(entry['datetime'], "%m/%d/%Y %H:%M:%S").hour
+        hour = datetime.strptime(entry['datetime'], "%Y-%m-%d %H:%M:%S").hour
         hour_counts[hour] += 1
     
     for hour, count in sorted(hour_counts.items(), key=lambda x: x[1], reverse=True):
