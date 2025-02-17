@@ -53,8 +53,9 @@ def count_hits_per_hour(data):
         hour = datetime.strptime(entry['datetime'], "%Y-%m-%d %H:%M:%S").hour
         hour_counts[hour] += 1
     
-    for hour, count in sorted(hour_counts.items(), key=lambda x: x[1], reverse=True):
-        print(f"Hour {hour:02} has {count} hits")
+    # Ensure all 24 hours are covered
+    for hour in range(24):
+        print(f"Hour {hour:02} has {hour_counts[hour]} hits")
 
 # Main function to execute the script
 def main():
